@@ -1,7 +1,7 @@
-<li class="flex items-center w-full justify-between">
+<li id="<%= dom_id task %>" class="flex items-center w-full justify-between">
   <%= form_with(model: task, class: "text-lg flex items-center my-3 w-72") do |f| %>
-    <%= f.check_box :completed, data: { id: task.id, action: "tasks#toggle" }, class: "w-4 mr-1 h-4 text-green-600 bg-gray-100 border-gray-300 rounded checked:bg-green-500" %>
+    <%= f.check_box :completed, data: { id: task.id, action: "tasks#toggle" }, class: "w-4 mr-2 h-4 text-green-600 bg-gray-100 border-gray-300 rounded checked:bg-green-500" %>
     <%= task.description %>
   <% end %>
-  <%= button_to "Delete", task_path(task), method: :destroy, class: "rounded-xl bg-red-50 text-red-600 py-2 px-4 hover:bg-red-200 cursor-pointer"%>
+  <%= button_to "Delete", task_path(task), method: :delete, class: "rounded-xl bg-red-50 text-red-600 py-2 px-4 hover:bg-red-200 cursor-pointer"%>
 </li>
