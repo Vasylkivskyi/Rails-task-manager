@@ -18,6 +18,14 @@ class TasksController < ApplicationController
     end
   end
 
+  def toggle
+    puts "🚀 ==>", params.inspect
+    @task = Task.find(params[:id])
+    @task.update(completed: params[:completed])
+
+    respond_to { |format| format.json { render json: { status: "ok" } } }
+  end
+
   private
 
   def task_params
