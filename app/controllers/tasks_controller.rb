@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: %i[toggle destroy]
   def index
     @tasks = Task.all
     @task = Task.new
@@ -19,14 +20,20 @@ class TasksController < ApplicationController
   end
 
   def toggle
-    puts "🚀 ==>", params.inspect
-    @task = Task.find(params[:id])
     @task.update(completed: params[:completed])
 
     respond_to { |format| format.json { render json: { status: "ok" } } }
   end
 
+  def destroy
+    @task.destroy
+  end
+
   private
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
   def task_params
     params.require(:task).permit(:description)
