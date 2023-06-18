@@ -1,3 +1,3 @@
 # README
 
-### Simple todo list built with Ruby on Rails Hotwire Turbo and Stimulus
+### Simple todo list built with Ruby on Rails, Hotwire, Turbo and Stimulus
